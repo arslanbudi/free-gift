@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
   <title>CONGRATULATIONS - REWARD PENDING</title>
   <meta content="You are today's lucky visitor" name="description">
   
@@ -14,6 +14,7 @@
   <style type="text/css">
     /* --- CSS RESET & BASE --- */
     *, *:before, *:after { box-sizing: border-box; }
+    
     body {
       margin: 0; padding: 0;
       font-family: 'Roboto', sans-serif;
@@ -24,23 +25,33 @@
       background-repeat: no-repeat;
       background-position: center;
       background-attachment: fixed;
+      overflow-x: hidden; /* Mencegah scroll samping */
     }
+    
     a { text-decoration: none; color: inherit; }
     a:hover { text-decoration: none; }
+    
+    /* Agar semua gambar responsive */
+    img {
+      max-width: 100%;
+      height: auto;
+    }
 
     /* --- ANIMATION & CARDS --- */
     .card-container {
       position: relative;
       height: 350px; 
       margin-top: 20px;
+      margin-bottom: 20px;
     }
+    
     .creditcard {
       position: absolute;
       left: 50%;
       bottom: 50px;
       transform: translateX(-50%);
-      height: 180px; /* Sesuaikan ini jika gambar produk Anda terlalu besar/kecil */
-      width: auto;   /* Menjaga rasio gambar */
+      height: 180px; 
+      width: auto;
       box-shadow: 0 10px 20px rgba(0,0,0,0.5);
       border-radius: 10px;
       animation: cardBounce 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
@@ -66,6 +77,7 @@
       text-align: center;
       text-shadow: 2px 2px 4px #000;
       margin-bottom: 20px;
+      line-height: 1.3;
     }
     h1 span {
       display: block;
@@ -74,21 +86,30 @@
       font-weight: 300;
       margin-bottom: 10px;
     }
+    .intro-text {
+        font-size: 1.1rem; 
+        background: rgba(0,0,0,0.6); 
+        padding: 15px; 
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
     .urgent-text {
       color: #ff4d4d;
       font-weight: bold;
       background: rgba(0,0,0,0.7);
-      padding: 5px;
+      padding: 3px 6px;
       border-radius: 4px;
+      white-space: nowrap; /* Teks tidak turun baris */
     }
 
     /* --- BUTTONS --- */
     .btn-wrapper {
-      margin-top: 20px;
+      margin-top: 10px;
       display: flex;
       flex-direction: column;
       gap: 15px;
       align-items: center;
+      width: 100%;
     }
     .btn-gift {
       display: flex;
@@ -114,6 +135,7 @@
     .btn-gift img {
       width: 35px;
       margin-right: 15px;
+      flex-shrink: 0; /* Mencegah icon gepeng */
     }
     .stock-count {
       background: #ff0000;
@@ -122,44 +144,66 @@
       padding: 3px 8px;
       border-radius: 20px;
       text-transform: uppercase;
+      white-space: nowrap;
     }
     
     /* --- UTILITIES --- */
     .blink { animation: blinker 1s linear infinite; }
     @keyframes blinker { 50% { opacity: 0.5; } }
     
-    .container { padding-bottom: 50px; }
-    .header-logo { margin-top: 30px; margin-bottom: 20px; }
+    .container { padding-bottom: 30px; }
+    .header-logo { margin-top: 20px; margin-bottom: 10px; }
+    .ad-wrapper { margin: 15px auto; text-align: center; max-width: 100%; overflow: hidden; }
 
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
+    /* --- MOBILE RESPONSIVE TWEAKS --- */
+    @media (max-width: 576px) {
+      /* Perkecil Judul */
       h1 { font-size: 1.4rem; }
       h1 span { font-size: 1.1rem; }
-      .creditcard { height: 150px; }
-      .card-container { height: 300px; }
+      .intro-text { font-size: 0.95rem; padding: 10px; }
+      
+      /* Perkecil Kartu Animasi */
+      .card-container { height: 280px; }
+      .creditcard { height: 130px; bottom: 30px; }
+      
+      @keyframes cardBounce {
+        0% { bottom: 30px; opacity: 1; z-index: 5; transform: translateX(-50%) scale(1); }
+        20% { bottom: 30px; opacity: 1; transform: translateX(-50%) scale(1.05); }
+        40% { bottom: -200px; opacity: 0; z-index: 1; } 
+        100% { bottom: 30px; opacity: 0; z-index: 1; }
+      }
+
+      /* Perkecil Tombol */
+      .btn-gift {
+        padding: 12px 15px;
+        font-size: 0.95rem;
+      }
+      .btn-gift img { width: 28px; margin-right: 10px; }
+      .stock-count { font-size: 0.6rem; }
     }
   </style>
 </head>
 
 <body>
 
-  <center>
- <script>
-  atOptions = {
-    'key' : '5fee7c0df8c16e622489dca8c58825b2',
-    'format' : 'iframe',
-    'height' : 250,
-    'width' : 300,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highperformanceformat.com/5fee7c0df8c16e622489dca8c58825b2/invoke.js"></script>
+  <!-- IKLAN ATAS -->
+  <div class="ad-wrapper">
+    <script>
+      atOptions = {
+        'key' : '5fee7c0df8c16e622489dca8c58825b2',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/5fee7c0df8c16e622489dca8c58825b2/invoke.js"></script>
+  </div>
 
-    <div class="header-logo">
-      <!-- Logo Website Utama -->
-      <img src="https://i.imgur.com/keXWpfC.png" style="width:180px; height:auto;" alt="Logo">
-    </div>
-  </center> 
+  <div class="text-center header-logo">
+    <!-- Logo Website Utama -->
+    <img src="https://i.imgur.com/keXWpfC.png" style="width:150px; max-width: 50%; height:auto;" alt="Logo">
+  </div>
 
   <div class="container">
     <div class="row">
@@ -168,13 +212,13 @@
           <span class="blink" style="color:#7FFF00;">CONGRATULATIONS!</span>
           YOU ARE TODAY'S LUCKY VISITOR!
         </h1>
-        <p style="font-size: 1.1rem; background: rgba(0,0,0,0.6); padding: 15px; border-radius: 10px;">
+        <div class="intro-text">
           Your device IP has been selected to claim an <b>Exclusive Premium Reward</b>.
           <br><br>
           <span class="urgent-text">WARNING: Inventory is Low!</span>
           <br>
           Please confirm your device type below to reserve your gift before it is given to the next visitor.
-        </p>
+        </div>
       </div>    
     </div>
 
@@ -194,7 +238,7 @@
     <!-- ACTION BUTTONS -->
     <div class="row">
       <div class="col-12 text-center">
-        <h3 style="color:#7FFF00; font-size:1.5rem; margin-bottom:20px;">
+        <h3 style="color:#7FFF00; font-size:1.3rem; margin-bottom:15px;">
           <span class="blink">STEP 1: CONFIRM YOUR DEVICE</span>
         </h3>
         
@@ -226,7 +270,7 @@
 
         <br><hr style="border-top: 1px solid rgba(255,255,255,0.2);"><br>
 
-        <h3 style="font-size:1.2rem; margin-bottom:15px;">Or Select Your Region:</h3>
+        <h3 style="font-size:1.1rem; margin-bottom:15px;">Or Select Your Region:</h3>
         
         <div class="btn-wrapper">
           <a class="btn-gift" href="https://profita.g2afse.com/sl?id=677e6866fa106c73876df3d8&pid=2346&sub1=bz" style="background:#222; border-color:#555;">
@@ -254,7 +298,7 @@
     <div class="row">
       <div class="col-12 text-center">
         <p style="font-size:0.8rem; color:#aaa;">No Purchase Required. Void where prohibited.</p>
-        <img src="https://cdn.shopify.com/s/files/1/0085/0408/2511/files/help-center-payment-icons_d2a60cde-7989-4216-8d23-d678f172ace3.png?v=1629336746" style="width:250px; opacity:0.8;" alt="Secure">
+        <img src="https://cdn.shopify.com/s/files/1/0085/0408/2511/files/help-center-payment-icons_d2a60cde-7989-4216-8d23-d678f172ace3.png?v=1629336746" style="width:250px; max-width:80%; opacity:0.8;" alt="Secure">
       </div>
     </div>
 
@@ -266,17 +310,20 @@
       console.log("User selected: " + device);
     }
   </script>
- <center>
- <script>
-  atOptions = {
-    'key' : '5fee7c0df8c16e622489dca8c58825b2',
-    'format' : 'iframe',
-    'height' : 250,
-    'width' : 300,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highperformanceformat.com/5fee7c0df8c16e622489dca8c58825b2/invoke.js"></script>
-</center>
+  
+  <!-- IKLAN BAWAH -->
+  <div class="ad-wrapper">
+    <script>
+      atOptions = {
+        'key' : '5fee7c0df8c16e622489dca8c58825b2',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highperformanceformat.com/5fee7c0df8c16e622489dca8c58825b2/invoke.js"></script>
+  </div>
+
 </body>
 </html>
